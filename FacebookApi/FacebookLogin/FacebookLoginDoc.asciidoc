@@ -1,0 +1,109 @@
+= Facebook Login
+
+Facebook'ta yaratılan uygulamaya Facebook Login Product'ı eklendi. 
+Facebook Login Product'ına serverın çalıştığı url eklendi. Değişiklikler kaydedildi. 
+
+image::FacebookLoginCallbackUrl.png[]
+
+    npm init 
+    
+komutu ile proje dizinine npm eklendi. İstenen bilgiler dolduruldu. 
+
+    npm install express 
+    
+komutuyla express kütüphanesi projeye dahil edildi.
+
+[source,]
+----
+var express = require('express');
+var app = express();
+
+app.use(express.static(__dirname + '/view'));
+
+app.get('/', function(req , res){
+	res.sendFile('./view/index.html');
+});
+
+app.listen(process.env.PORT || 3000);
+
+----
+
+view klasöründe index.html tutuldu. Linke tıklandığında anasayfa olarak index.html render edildi. Server 3000 portunu dinlemeye ayarlandı. Index.html'de statusChangeCallback fonksiyonunda Facebook Api istek sonuçları filtrelendi. 
+
+[source,]
+----
+function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+
+    if (response.status === 'connected') {
+      // uygulamaya ve facebook'a giriş yapıldı.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // facebook'a giriş yapıldı, uygulamaya giriş yapılamadı.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // facebook'a giriş yapılmadı.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+----
+
+Facebook Sdk'sına Projenin bilgileri yazıldı. 
+
+[source,]
+----
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1810297399213249',//Uygulama ID'si yazılıyor
+    cookie     : true,  // cookie'ler enable ediliyor
+    xfbml      : true,
+    version    : 'v2.8' //graph api 2.8 versiyonunu kullan
+  });
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+  };
+----
+
+Sdk asenkron olarak kuruldu.
+
+[source,]
+----
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Graph api isteği döndüğünde giriş yapılıp yapılmadığı denenip gösteriliyor.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+----
+
+Facebook Sdksından facebook button kullanıldı. Tıklanıldığında checkLoginState() fonksiyonu çalıştırıldı. Login isteği sonucu status divine yazıldı.
+
+[source,]
+----
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+----
+
+image::loginbutton.png[]
+
+image::login.png[]
+image::loggedin.png[]

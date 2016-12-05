@@ -1,0 +1,27 @@
+{
+  "name": "facebooklogin",
+  "version": "1.0.0",
+  "description": "Facebook Login Api",
+  "main": "facebookLogin.js",
+  "scripts": {
+    "test": "node facebookLogin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dogabaris/Api_Ornekleri.git"
+  },
+  "keywords": [
+    "facebook",
+    "api"
+  ],
+  "author": "Doğa Barış Özdemir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dogabaris/Api_Ornekleri/issues"
+  },
+  "homepage": "https://github.com/dogabaris/Api_Ornekleri#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "path": "^0.12.7"
+  }
+}
