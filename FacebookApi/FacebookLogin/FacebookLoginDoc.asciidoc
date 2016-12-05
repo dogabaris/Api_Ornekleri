@@ -3,7 +3,7 @@
 Facebook'ta yaratılan uygulamaya Facebook Login Product'ı eklendi. 
 Facebook Login Product'ına serverın çalıştığı url eklendi. Değişiklikler kaydedildi. 
 
-image::FacebookLoginCallbackUrl.png[]
+image::images/FacebookLoginCallbackUrl.png[]
 
     npm init 
     
@@ -103,7 +103,6 @@ Facebook Sdksından facebook button kullanıldı. Tıklanıldığında checkLogi
 </div>
 ----
 
-image::loginbutton.png[]
-
-image::login.png[]
-image::loggedin.png[]
+image::images/loginbutton.png[]
+image::images/login.png[]
+image::images/loggedin.png[]
