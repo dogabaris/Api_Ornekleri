@@ -1,0 +1,33 @@
+{
+  "name": "accountkitapi",
+  "version": "1.0.0",
+  "description": "Facebook Account Kit Api",
+  "main": "accountkit.js",
+  "scripts": {
+    "test": "node accountkit.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dogabaris/Api_Ornekleri.git"
+  },
+  "keywords": [
+    "facebook",
+    "account",
+    "kit",
+    "api"
+  ],
+  "author": "Doğa Barış Özdemir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dogabaris/Api_Ornekleri/issues"
+  },
+  "homepage": "https://github.com/dogabaris/Api_Ornekleri#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^3.21.2",
+    "guid": "0.0.12",
+    "mustache": "^2.3.0",
+    "querystring": "^0.2.0",
+    "request": "^2.79.0"
+  }
+}
