@@ -7,17 +7,17 @@ const Request  = require('request');
 const Querystring  = require('querystring');
 const app = express();
 
-app.use(express.static(__dirname + '/view'));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/view'));
+
 
 var csrf_guid = Guid.raw();
-const api_version = 1.0;
+const api_version = "v1.1";
 const app_id = 1810297399213249;
 const app_secret = '71e8ecc53aebcd4c18e8a4e22f86c856';
-const me_endpoint_base_url = 'https://graph.accountkit.com/v1.0/me';
-const token_exchange_base_url = 'https://graph.accountkit.com/v1.0/access_token';
+const me_endpoint_base_url = 'https://graph.accountkit.com/v1.1/me';
+const token_exchange_base_url = 'https://graph.accountkit.com/v1.1/access_token';
 
 
 function loadLogin() {
@@ -26,9 +26,9 @@ function loadLogin() {
 
 app.get('/', function(request, response){
   var view = {
-    appId: 1810297399213249,
+    appId: app_id,
     csrf: csrf_guid,
-    version: 1.0,
+    version: api_version,
   };
 
   var html = Mustache.to_html(loadLogin(), view);
@@ -65,6 +65,7 @@ app.post('/sendcode', function(request, response){
       var me_endpoint_url = me_endpoint_base_url + '?access_token=' + respBody.access_token;
       Request.get({url: me_endpoint_url, json:true }, function(err, resp, respBody) {
         // send login_success.html
+        console.log(respBody);
         if (respBody.phone) {
           view.phone_num = respBody.phone.number;
         } else if (respBody.email) {

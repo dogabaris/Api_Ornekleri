@@ -7,53 +7,57 @@
 <script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
 
 <script>
-  // initialize Account Kit with CSRF protection
-  AccountKit_OnInteractive = function(){
-    AccountKit.init(
-      {
-        appId:1810297399213249,
-        state:"{{csrf}}",
-        version:"v1.0"
-      }
-    );
-  };
-
-  // login callback
-  function loginCallback(response) {
-    console.log(response);
-    if (response.status === "PARTIALLY_AUTHENTICATED") {
-      document.getElementById("code").value = response.code;
-      document.getElementById("csrf_nonce").value = response.state;
-      document.getElementById("my_form").submit();
+// initialize Account Kit with CSRF protection
+AccountKit_OnInteractive = function(){
+  console.log("{{csrf}}")
+  AccountKit.init(
+    {
+      appId:1810297399213249,
+      state:"{{csrf}}",
+      version:"v1.1"
     }
-    else if (response.status === "NOT_AUTHENTICATED") {
-      // handle authentication failure
-    }
-    else if (response.status === "BAD_PARAMS") {
-      // handle bad parameters
-    }
+  );
+};
+
+// login callback
+function loginCallback(response) {
+  console.log(response);
+  if (response.status === "PARTIALLY_AUTHENTICATED") {
+    document.getElementById("code").value = response.code;
+    document.getElementById("csrf_nonce").value = response.state;
+    document.getElementById("my_form").submit();
+
   }
-
-  // phone form submission handler
-  function phone_btn_onclick() {
-    var country_code = document.getElementById("country_code").value;
-    var ph_num = document.getElementById("phone_num").value;
-    AccountKit.login('PHONE',
-      {countryCode: country_code, phoneNumber: ph_num}, // will use default values if this is not specified
-      loginCallback);
+  else if (response.status === "NOT_AUTHENTICATED") {
+    console.log("Giriş yapılamadı!");
   }
-
-
-  // email form submission handler
-  function email_btn_onclick() {
-    var email_address = document.getElementById("email").value;
-
-    AccountKit.login('EMAIL', {emailAddress: email_address}, loginCallback);
+  else if (response.status === "BAD_PARAMS") {
+    console.log("Parametre hatası var!");
   }
+}
 
+// phone form submission handler
+function phone_btn_onclick() {
+  var country_code = document.getElementById("country_code").value;
+  var ph_num = document.getElementById("phone_num").value;
+  AccountKit.login('PHONE',
+    {countryCode: country_code, phoneNumber: ph_num}, // will use default values if this is not specified
+    loginCallback);
+}
+
+
+// email form submission handler
+function email_btn_onclick() {
+  var email_address = document.getElementById("email").value;
+
+  AccountKit.login('EMAIL', {emailAddress: email_address}, loginCallback);
+}
 </script>
+
 </head>
 <body>
+
+
 
 Enter country code (e.g. +1):
 <input type="text" id="country_code" />
@@ -64,11 +68,11 @@ Enter email address
 <input type="text" id="email"/>
 <button onclick="email_btn_onclick();">Login via Email</button>
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<div id="status">
-</div>
+<form id="my_form" name="my_form" action="/sendcode" method="POST" style="display: none;">
+    <input type="text" id="code" name="code">
+    <input type="text" id="csrf_nonce" name="csrf_nonce">
+    <input type="submit" value="Submit">
+</form>
 
 </body>
 </html>
