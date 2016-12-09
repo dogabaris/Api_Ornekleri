@@ -1,6 +1,13 @@
 = Sharing On Facebook
 
-*sharingonfacebook.js dosyası server ayarları için oluşturuldu ve gereksinimler tanımlandı.*
+Node Packet Manager dan gerekli paketlerin kurulumu gerçekleştirildi.
+
+[source,]
+----
+npm insatall express
+----
+
+sharingonfacebook.js dosyası server ayarları için oluşturuldu ve gereksinimler tanımlandı.
 
 [source,]
 ----
@@ -18,7 +25,7 @@ app.get('/', function(req , res){
 app.listen(process.env.PORT || 3000);
 ----
 
-*index.html dosyasına Facebook sharing özelliği kullanımı için gerekli olan script entegre edildi.*
+index.html dosyasına Facebook sharing özelliği kullanımı için gerekli olan script entegre edildi.
 
 [source,]
 ----
@@ -42,7 +49,7 @@ app.listen(process.env.PORT || 3000);
     </script>
 ----
 
-*Eklediğimiz Facebook sharing özelliğini kullanabilmek için html sayfamızda birkaç buton tanımlandı.*
+Eklediğimiz Facebook sharing özelliğini kullanabilmek için html sayfamızda birkaç buton tanımlandı.
 
 [source,]
 ----
@@ -53,7 +60,7 @@ app.listen(process.env.PORT || 3000);
     <input type="button" class="button" id="send-message-btn" value="Send Message">
 ----
 
-*Tanımlamış olduğumuz butonların 'id' lerini kullanarak sharing scriptleri tetiklendi.*
+Tanımlamış olduğumuz butonların 'id' lerini kullanarak sharing scriptleri tetiklendi.
 
 [source,]
 ----
