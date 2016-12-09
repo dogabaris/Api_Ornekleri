@@ -1,0 +1,67 @@
+    node socialplugins.js
+    
+Proje dizininde açılan terminalde yukarıdaki komut girilerek server localhost üzerinde çalıştırılabilir. 
+
+[source,]
+----
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v2.8";//tr_TR kısmı değiştirilerek diğer diller de kullanılabilir.
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+----
+
+index.html'in head kısmında facebook sdksı çağrıldı. Social Pluginlerin yan yana gösterilmesi için table oluşturuldu. 
+
+[source,]
+----
+<table border="0.5">
+  <tr>
+    <th>Comments</th>
+    <th>Embedded Comment</th>
+    <th>Embedded Post</th>
+    <th>Embedded Video</th>
+    <th>Follow Button</th>
+    <th>Like Button</th>
+    <th>Page Plugin</th>
+    <th>Quote Plugin</th>
+    <th>Save Button</th>
+    <th>Send Button</th>
+    <th>Share Button</th>
+  </tr>
+----
+
+Tablo sütunlarında divler oluşturuldu, oluşturulan divlere class etiketleri eklendi,classlar facebook classlarına göre çağrılarak çalıştırılacak pluginler seçildi. Örneğin;
+
+[source,]
+----
+<td><div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div></td>
+----
+
+Comments plugini için fb-comments classı eklendi. Div tagları apide kullanmaya olanaklı taglere göre değiştirilerek istenilen bilgilerin ve görselliğin verilmesi sağlanabilir.
+
+image::images/comments.png[]
+
+image::images/embeddedcomment.png[]
+
+image::images/embeddedpost.png[]
+
+image::images/embedvideo.png[]
+
+image::images/followbutton.png[]
+
+image::images/likebutton.png[]
+
+image::images/page.png[]
+
+image::images/quote.png[]
+
+image::images/save.png[]
+
+image::images/send.png[]
+
+image::images/share.png[]
