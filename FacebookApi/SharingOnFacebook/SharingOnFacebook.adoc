@@ -68,7 +68,7 @@ document.getElementById('shareBtn').onclick = function() {
 </script>
 
 ----
-image::Desktop\2sf.png[]
+image::images\2sf.png[]
 
 [source,]
 ----
@@ -82,7 +82,7 @@ document.getElementById('feed-dialog-btn').onclick = function() {
 }
 </script>
 ----
-image::Desktop\3sf.png[]
+image::images\3sf.png[]
 
 [source,]
 ----
@@ -96,4 +96,4 @@ document.getElementById('send-message-btn').onclick = function() {
 </script>
 
 ----
-image::Desktop\1sf.png[]
+image::images\1sf.png[]
