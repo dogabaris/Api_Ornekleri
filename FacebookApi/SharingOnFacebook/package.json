@@ -1,0 +1,29 @@
+{
+  "name": "sharingonfacebook",
+  "version": "1.0.0",
+  "description": "sharing on facebook api",
+  "main": "sharingonfacebook.js",
+  "scripts": {
+    "test": "node sharingonfacebook.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dogabaris/Api_Ornekleri.git"
+  },
+  "keywords": [
+    "facebook",
+    "sharing",
+    "on",
+    "facebook",
+    "api"
+  ],
+  "author": "Pinar Adiguzel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dogabaris/Api_Ornekleri/issues"
+  },
+  "homepage": "https://github.com/dogabaris/Api_Ornekleri#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

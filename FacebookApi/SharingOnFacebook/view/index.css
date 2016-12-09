@@ -1,0 +1,9 @@
+.button {
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:150px;
+    height:70px;
+    border: 1px solid #ccc;
+    background-color: #f3f3f3;
+}
