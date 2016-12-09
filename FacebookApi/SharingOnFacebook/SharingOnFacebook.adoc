@@ -1,0 +1,99 @@
+= Sharing On Facebook
+
+*sharingonfacebook.js dosyası server ayarları için oluşturuldu ve gereksinimler tanımlandı.*
+
+[source,]
+----
+var express = require('express');
+var app = express();
+
+app.use(express.static(__dirname + '/view'));
+
+
+app.get('/', function(req , res){
+	res.sendFile('./view/index.html');
+    res.sendFile('./view/index.css')
+});
+
+app.listen(process.env.PORT || 3000);
+----
+
+*index.html dosyasına Facebook sharing özelliği kullanımı için gerekli olan script entegre edildi.*
+
+[source,]
+----
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+        appId      : '1810297399213249',
+        xfbml      : true,
+        version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
+----
+
+*Eklediğimiz Facebook sharing özelliğini kullanabilmek için html sayfamızda birkaç buton tanımlandı.*
+
+[source,]
+----
+    <input type="button" class="button" id="shareBtn" value="Share">
+
+    <input type="button" class="button" id="feed-dialog-btn" value="Feed Dialog Button">
+
+    <input type="button" class="button" id="send-message-btn" value="Send Message">
+----
+
+*Tanımlamış olduğumuz butonların 'id' lerini kullanarak sharing scriptleri tetiklendi.*
+
+[source,]
+----
+<script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://www.google.com/',
+  }, function(response){});
+}
+</script>
+
+----
+image::Desktop\2sf.png[]
+
+[source,]
+----
+<script>
+document.getElementById('feed-dialog-btn').onclick = function() {
+    FB.ui({
+        method: 'feed',
+        link: 'https://developers.facebook.com/docs/',
+        caption: 'An example caption',
+    }, function(response){});
+}
+</script>
+----
+image::Desktop\3sf.png[]
+
+[source,]
+----
+<script>
+document.getElementById('send-message-btn').onclick = function() {
+    FB.ui({
+        method: 'send',
+        link: 'http://www.nytimes.com/interactive/2015/04/15/travel/europe-favorite-streets.html',
+    });
+}
+</script>
+
+----
+image::Desktop\1sf.png[]
