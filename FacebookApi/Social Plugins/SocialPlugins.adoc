@@ -2,7 +2,7 @@
     
 Proje dizininde açılan terminalde yukarıdaki komut girilerek server localhost üzerinde çalıştırılabilir. 
 
-[source,]
+[source,javascript]
 ----
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -17,7 +17,7 @@ Proje dizininde açılan terminalde yukarıdaki komut girilerek server localhost
 
 index.html'in head kısmında facebook sdksı çağrıldı. Social Pluginlerin yan yana gösterilmesi için table oluşturuldu. 
 
-[source,]
+[source,javascript]
 ----
 <table border="0.5">
   <tr>
