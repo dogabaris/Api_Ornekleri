@@ -1,15 +1,10 @@
 =  Account Kit  
-    node install fs
-    node install guid
-    node install express
-    node install body-parser
-    node install mustache
-    node install request
-    node install querystring
+    
+    node accountkit.js
     
 Gerekli paketler proje dizinine kuruldu. Gün Özetleri uygulamasına Account Kit eklendi.
 
-[source,]
+[source,javascript]
 ----
 var csrf_guid = Guid.raw();
 const api_version = "v1.1";
@@ -21,7 +16,7 @@ const token_exchange_base_url = 'https://graph.accountkit.com/v1.1/access_token'
 
 Uygulamanın bilgileri değişkenlere atıldı. 
 
-[source,]
+[source,javascript]
 ----
 function loadLogin() {
   return fs.readFileSync('view/login.html').toString();
@@ -41,14 +36,14 @@ app.get('/', function(request, response){
 
 login.html header'ına account kit sdk'sı dahil edilidi. Doğrulamayı sağlayacak fonksiyonlar yazıldı.
 
-[source,]
+[source,html]
 ----
 <script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
 ----
 
 login.html sayfası index olarak gösterildi. Doğrulama işlemi doğru sonlandıysa Facebook'tan id'ler ve tokenler alındı. 
 
-[source,]
+[source,javascript]
 ----
 var me_endpoint_url = me_endpoint_base_url + '?access_token=' + respBody.access_token;
   Request.get({url: me_endpoint_url, json:true }, function(err, resp, respBody) {
@@ -66,7 +61,7 @@ var me_endpoint_url = me_endpoint_base_url + '?access_token=' + respBody.access_
 
 login.html body tagina buttonlar ve textboxlar eklendi.
 
-[source,]
+[source,html]
 ----
 Enter country code (e.g. +1):
 <input type="text" id="country_code" />
@@ -80,7 +75,7 @@ Enter email address
 
 Doğrulama işlemi başarılı olduğunda serverurl.com/sendcode adresine istekte bulunması için gizli bir form oluşturuldu. 
 
-[source,]
+[source,html]
 ----
 <form id="my_form" name="my_form" action="/sendcode" method="POST" style="display: none;">
     <input type="text" id="code" name="code">

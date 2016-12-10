@@ -9,7 +9,7 @@ npm insatall express
 
 sharingonfacebook.js dosyası server ayarları için oluşturuldu ve gereksinimler tanımlandı.
 
-[source,]
+[source,javascript]
 ----
 var express = require('express');
 var app = express();
@@ -27,7 +27,7 @@ app.listen(process.env.PORT || 3000);
 
 index.html dosyasına Facebook sharing özelliği kullanımı için gerekli olan script entegre edildi.
 
-[source,]
+[source,javascript]
 ----
 <script>
     window.fbAsyncInit = function() {
@@ -51,7 +51,7 @@ index.html dosyasına Facebook sharing özelliği kullanımı için gerekli olan
 
 Eklediğimiz Facebook sharing özelliğini kullanabilmek için html sayfamızda birkaç buton tanımlandı.
 
-[source,]
+[source,html]
 ----
     <input type="button" class="button" id="shareBtn" value="Share">
 
@@ -62,7 +62,7 @@ Eklediğimiz Facebook sharing özelliğini kullanabilmek için html sayfamızda 
 
 Tanımlamış olduğumuz butonların 'id' lerini kullanarak sharing scriptleri tetiklendi.
 
-[source,]
+[source,javascript]
 ----
 <script>
 document.getElementById('shareBtn').onclick = function() {
@@ -77,7 +77,7 @@ document.getElementById('shareBtn').onclick = function() {
 ----
 image::images\2sf.png[]
 
-[source,]
+[source,javascript]
 ----
 <script>
 document.getElementById('feed-dialog-btn').onclick = function() {
@@ -91,7 +91,7 @@ document.getElementById('feed-dialog-btn').onclick = function() {
 ----
 image::images\3sf.png[]
 
-[source,]
+[source,javascript]
 ----
 <script>
 document.getElementById('send-message-btn').onclick = function() {
