@@ -13,7 +13,7 @@ komutu ile proje dizinine npm eklendi. İstenen bilgiler dolduruldu.
     
 komutuyla express kütüphanesi projeye dahil edildi.
 
-[source,]
+[source,javascript]
 ----
 var express = require('express');
 var app = express();
@@ -30,7 +30,7 @@ app.listen(process.env.PORT || 3000);
 
 view klasöründe index.html tutuldu. Linke tıklandığında anasayfa olarak index.html render edildi. Server 3000 portunu dinlemeye ayarlandı. Index.html'de statusChangeCallback fonksiyonunda Facebook Api istek sonuçları filtrelendi. 
 
-[source,]
+[source,javascript]
 ----
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -53,7 +53,7 @@ function statusChangeCallback(response) {
 
 Facebook Sdk'sına Projenin bilgileri yazıldı. 
 
-[source,]
+[source,javascript]
 ----
   window.fbAsyncInit = function() {
   FB.init({
@@ -71,7 +71,7 @@ Facebook Sdk'sına Projenin bilgileri yazıldı.
 
 Sdk asenkron olarak kuruldu.
 
-[source,]
+[source,javascript]
 ----
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -94,7 +94,7 @@ Sdk asenkron olarak kuruldu.
 
 Facebook Sdksından facebook button kullanıldı. Tıklanıldığında checkLoginState() fonksiyonu çalıştırıldı. Login isteği sonucu status divine yazıldı.
 
-[source,]
+[source,html]
 ----
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
