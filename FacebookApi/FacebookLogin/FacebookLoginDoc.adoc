@@ -13,6 +13,10 @@ komutu ile proje dizinine npm eklendi. İstenen bilgiler dolduruldu.
     
 komutuyla express kütüphanesi projeye dahil edildi.
 
+    node facebooklogin.js
+    
+komutuyla proje localhostta çalıştırıldı.
+
 [source,javascript]
 ----
 var express = require('express');
