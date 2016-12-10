@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Twitter Api</title>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" type="text/css" href="css.css" media="screen" />
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+            $(function() {
+                $("#sign-in-with-twitter").on("click", function() {
+                    window.location.href = "/request-token";
+                });
+            });
+</script>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+<script>
+$('#tweetscript').load(function(){
+    var tweetHtml = $("#tweet").html();
+
+    $("#tweet-insert").html(tweetHtml);});
+</script>
+
+</head>
+<body>
+
+
+<table border="0.5">
+
+  <tr>
+    <th>Login Button</th>
+    <th>Embedded Tweet</th>
+    <th>Embedded Tweet with Video</th>
+    <th>Timeline</th>
+    <th>Tweet Button</th>
+    <th>Message Button</th>
+    <th>Follow Button</th>
+
+  </tr>
+  <tr>
+    <td><button id="sign-in-with-twitter">Sign in with Twitter!</button></td>
+    <td>
+      <div id="tweet">
+          <blockquote class="twitter-tweet"><p>A lion would never cheat on his wife. But a Tiger Wood.</p>&mdash; Puns (@omgthatspunny) <a href="https://twitter.com/omgthatspunny/status/301482080490115072">February 13, 2013</a></blockquote>
+          <script id="tweetscript" async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </td>
+
+    <td>
+      <div id="tweet">
+          <blockquote class="twitter-tweet"> <a href="https://publish.twitter.com/oembed?url=https://twitter.com/twitter/status/560070183650213889&widget_type=video"></a></blockquote>
+          <script id="tweetscript" async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </td>
+    <td>
+    <a class="twitter-timeline"
+      href="https://twitter.com/fabric">
+      Tweets by @fabric
+    </a>
+    </td>
+    <td>
+    <a class="twitter-share-button"
+      href="https://twitter.com/intent/tweet">
+    Tweet</a>
+    </td>
+    <td>
+      <a href="https://twitter.com/messages/compose?recipient_id=3805104374"
+        class="twitter-dm-button" data-screen-name="@furni">
+        Message @furni
+      </a>
+    </td>
+    <td>
+      <a class="twitter-follow-button"
+        href="https://twitter.com/TwitterDev">
+        Follow @TwitterDev
+      </a>
+    </td>
+
+  </tr>
+
+</table>
+
+
+
+</body>
+</html>
