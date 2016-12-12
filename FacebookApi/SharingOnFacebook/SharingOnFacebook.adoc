@@ -4,7 +4,7 @@ Node Packet Manager dan gerekli paketlerin kurulumu gerçekleştirildi.
 
 [source,]
 ----
-npm insatall express
+npm install express
 ----
 
 sharingonfacebook.js dosyası server ayarları için oluşturuldu ve gereksinimler tanımlandı.
