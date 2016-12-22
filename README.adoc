@@ -4,12 +4,22 @@
 
 === Facebook Login [https://github.com/dogabaris/Api_Ornekleri/tree/master/FacebookApi/FacebookLogin[link]]
 
+Facebook Login web sitesi üzerinden Facebook'a giriş yapmayı sağlar.
+
 === Account Kit [https://github.com/dogabaris/Api_Ornekleri/tree/master/FacebookApi/Account%20Kit[link]]
+
+Account Kit web sitesi üstünde oluşturulan Facebook uygulamasını kullanarak e-posta ve sms doğrulaması yapılmasını sağlar.
 
 === Sharing On Facebook [https://github.com/dogabaris/Api_Ornekleri/tree/master/FacebookApi/SharingOnFacebook[link]]
 
+Sharing on Facebook web sitesi üzerinden Facebook'ta paylaşım yapmayı sağlar.
+
 === Social Plugins [https://github.com/dogabaris/Api_Ornekleri/tree/master/FacebookApi/Social%20Plugins[link]]
+
+Social Plugins web sitesi üzerinde Facebooktaki yorumların, sayfaların, gönderilerin vb içeriklerin görüntülenmesini sağlar.
 
 == Twitter Apileri
 
 === Website Plugins [https://github.com/dogabaris/Api_Ornekleri/tree/master/TwitterApi/Website%20Plugins[link]]
+
+Website Plugins web sitesi üzerinde Twitterdaki tweetlerin, profillerin, timelineların, butonların vb içeriklerin görüntülenmesini sağlar.
